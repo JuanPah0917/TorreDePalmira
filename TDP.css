@@ -1,0 +1,1943 @@
+/* =========================
+   SATOSHI
+========================= */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Carentro';
+  src: url('./fonts/carentro-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  font-family: 'Satoshi', sans-serif;
+}
+
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+
+  top: 46px;
+  left: 50%;
+
+  width: calc(100% - 60px);
+  height: 60px;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  transition:
+    width 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.navbar__container {
+  position: relative;
+
+  width: 100%;
+  height: 60px;
+
+  background: #FCF7F0;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  transition:
+    border-radius 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/* =========================
+   NAVBAR - IZQUIERDA
+========================= */
+
+.navbar__left {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 65px;
+
+  padding-left: 21px;
+}
+
+
+/* =========================
+   NAVBAR - LINKS
+========================= */
+
+.navbar__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: #207220;
+
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   NAVBAR - LOGO
+========================= */
+
+.navbar__logo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 124px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
+}
+
+
+/* =========================
+   NAVBAR - DERECHA
+========================= */
+
+.navbar__right {
+  margin-left: auto;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 78px;
+}
+
+
+/* =========================
+   NAVBAR - CTA
+========================= */
+
+.navbar__cta {
+  width: 120px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 25px;
+
+  background: #207220;
+
+  border: 1px solid #6F8060;
+  border-radius: 2px;
+
+  box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25);
+
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 16px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+
+  text-decoration: none;
+}
+
+/* =========================
+   NAVBAR - ESTADO CONTRAÍDO
+========================= */
+
+.navbar.is-scrolling {
+  width: 154px;
+}
+
+.navbar.is-scrolling .navbar__container {
+  border-radius: 5px;
+}
+
+.navbar__left,
+.navbar__right {
+  opacity: 1;
+  visibility: visible;
+
+  /*
+    Al ABRIR:
+    esperamos a que la navbar termine de expandirse
+    antes de mostrar los links.
+  */
+  transition:
+    opacity 0.25s ease 0.5s,
+    visibility 0s linear 0.5s;
+}
+
+
+/* Mientras está contraída */
+
+.navbar.is-scrolling .navbar__left,
+.navbar.is-scrolling .navbar__right {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  /*
+    Al CERRAR:
+    desaparecen inmediatamente.
+  */
+  transition:
+    opacity 0.15s ease,
+    visibility 0s linear 0.15s;
+}
+
+
+/* El logo siempre permanece visible */
+
+.navbar__logo {
+  transition: opacity 0.3s ease;
+}
+
+
+
+
+
+
+
+/* =========================
+   HERO 1
+========================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 1024px;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO - IMAGEN
+========================= */
+
+.hero__background {
+  position: absolute;
+
+  /* Extendemos ligeramente la imagen para que
+     el blur no genere bordes transparentes */
+  inset: -5px;
+
+  background-image: url('./imgTDP/FOTO\ 1.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  filter: blur(2.5px);
+
+  z-index: 0;
+}
+
+
+/* =========================
+   HERO - CONTENIDO
+========================= */
+
+.hero__content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   HERO - TÍTULO
+========================= */
+
+.hero__title {
+  position: absolute;
+
+  width: 788px;
+
+  left: 50%;
+  top: 363px;
+
+  transform: translateX(-50%);
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 70px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   HERO - SUBTÍTULO
+========================= */
+
+.hero__subtitle {
+  position: absolute;
+
+  width: 728px;
+
+  left: 50%;
+  top: 519px;
+
+  transform: translateX(-50%);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   HERO - CTA
+========================= */
+
+.hero__cta {
+  position: absolute;
+
+  width: 241px;
+  height: 60px;
+
+  left: 50%;
+  top: 601px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #207220;
+
+  box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25);
+
+  border-radius: 2px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 20px;
+
+  text-align: center;
+  text-decoration: none;
+
+  color: #FCF7F0;
+}
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 2
+========================= */
+
+.hero2 {
+  position: relative;
+
+  width: 100%;
+  height: 818px;
+
+  display: flex;
+
+  background: #FCF7F0;
+}
+
+
+/* =========================
+   HERO 2 - IMAGEN
+========================= */
+
+.hero2__image {
+  width: 49.3%;
+  height: 818px;
+
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.hero2__image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+}
+
+
+/* =========================
+   HERO 2 - CONTENIDO
+========================= */
+
+.hero2__content {
+  position: relative;
+
+  flex: 1;
+  height: 100%;
+}
+
+
+/* =========================
+   HERO 2 - EYEBROW
+========================= */
+
+.hero2__eyebrow {
+  position: absolute;
+
+  left: 93px;
+  top: 153px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #6F8060;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+/* =========================
+   HERO 2 - TÍTULO
+========================= */
+
+.hero2__title {
+  position: absolute;
+
+  width: 541px;
+
+  left: 93px;
+  top: 221px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 61px;
+
+  color: #207220;
+}
+
+
+/* =========================
+   HERO 2 - TEXTO
+========================= */
+
+.hero2__text {
+  position: absolute;
+
+  width: 540px;
+
+  left: 94px;
+  top: 379px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+
+  text-align: justify;
+
+  color: #6F8060;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 3
+========================= */
+
+.hero3 {
+  position: relative;
+
+  width: 100%;
+  height: 695px;
+
+  background: #207220;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO 3 - HEADER
+========================= */
+
+.hero3__header {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* CARACTERÍSTICAS DEL PROYECTO */
+
+.hero3__eyebrow {
+  position: absolute;
+
+  top: 97px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #B6CA93;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  white-space: nowrap;
+}
+
+
+/* Exclusividad en cada detalle */
+
+.hero3__title {
+  position: absolute;
+
+  top: 159px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 872px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 55px;
+  line-height: 61px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   HERO 3 - CARACTERÍSTICAS
+========================= */
+
+.hero3__features {
+  position: absolute;
+
+  width: 980px;
+
+  left: 50%;
+  top: 281px;
+
+  transform: translateX(-50%);
+
+  display: grid;
+
+  grid-template-columns: 430px 430px;
+
+  column-gap: 121px;
+  row-gap: 40px;
+}
+
+
+/* =========================
+   HERO 3 - FEATURE
+========================= */
+
+.hero3__feature {
+  width: 430px;
+}
+
+
+/* Icono + título */
+
+.hero3__feature-header {
+  display: flex;
+  align-items: center;
+
+  height: 44px;
+}
+
+
+/* ICONOS */
+
+.hero3__icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   HERO 3 - TÍTULOS
+========================= */
+
+.hero3__feature-title {
+  margin-left: 18px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 40px;
+  line-height: 44px;
+
+  color: #FCF7F0;
+
+  white-space: nowrap;
+}
+
+
+/* Segunda fila en Figma usa 36px */
+
+.hero3__feature-title--small {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+
+/* =========================
+   HERO 3 - DESCRIPCIÓN
+========================= */
+
+.hero3__feature-text {
+  width: 340px;
+
+  margin-top: 9px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #FFFFFF;
+}
+
+
+/* Texto de 20 apartamentos es más ancho */
+
+.hero3__feature-text--wide {
+  width: 430px;
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 4
+========================= */
+
+.hero4 {
+  position: relative;
+
+  width: 100%;
+  height: 647px;
+
+  background-image: url('./imgTDP/FOTO\ 3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO 4 - EYEBROW
+========================= */
+
+.hero4__eyebrow {
+  position: absolute;
+
+  top: 232px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 178px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: center;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  color: #FCF7F0;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   HERO 4 - TÍTULO
+========================= */
+
+.hero4__title {
+  position: absolute;
+
+  top: 294px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 725px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 55px;
+  line-height: 61px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 5
+========================= */
+
+.hero5 {
+  position: relative;
+
+  width: 100%;
+  height: 1025px;
+
+  background: #FCF7F0;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO 5 - GRID
+========================= */
+
+.hero5__grid {
+  position: absolute;
+
+  top: 77px;
+  left: 30px;
+  right: 30px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: 20px;
+  row-gap: 15px;
+}
+
+
+/* =========================
+   HERO 5 - CARD
+========================= */
+
+.hero5__card {
+  display: block;
+
+  min-width: 0;
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+
+/* =========================
+   HERO 5 - IMAGEN
+========================= */
+
+.hero5__image-wrapper {
+  width: 100%;
+  height: 400px;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+}
+
+.hero5__image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================
+   HERO 5 - TEXTO
+========================= */
+
+.hero5__label {
+  display: inline-block;
+
+  margin-top: 9px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #207220;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  transform: scale(1);
+  transform-origin: left center;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================
+   HERO 5 - HOVER
+========================= */
+
+.hero5__card:hover .hero5__image {
+  transform: scale(1.035);
+}
+
+.hero5__card:hover .hero5__label {
+  transform: scale(1.04);
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 6
+========================= */
+
+.hero6 {
+  position: relative;
+
+  width: 100%;
+  height: 647px;
+
+  background-image: url('./imgTDP/FOTO\ 4.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO 6 - OVERLAY
+========================= */
+
+.hero6__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: #000000;
+
+  opacity: 0.2;
+
+  z-index: 0;
+}
+
+
+/* =========================
+   HERO 6 - EYEBROW
+========================= */
+
+.hero6__eyebrow {
+  position: absolute;
+
+  top: 232px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 138px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: center;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  color: #FCF7F0;
+
+  white-space: nowrap;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   HERO 6 - TÍTULO
+========================= */
+
+.hero6__title {
+  position: absolute;
+
+  top: 294px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 725px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 55px;
+  line-height: 61px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 7
+========================= */
+
+.hero7 {
+  position: relative;
+
+  width: 100%;
+  height: 1244px;
+
+  background: #FCF7F0;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   CARRUSEL
+========================= */
+
+.hero7__slider {
+  position: absolute;
+
+  top: 91px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+  height: 577px;
+}
+
+
+/* Ventana de imagen */
+
+.hero7__slider-window {
+  position: absolute;
+
+  width: 960px;
+  height: 577px;
+
+  left: 50%;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  overflow: hidden;
+
+  border-radius: 10px;
+}
+
+
+/* Track */
+
+.hero7__slider-track {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/* Cada imagen */
+
+.hero7__slide {
+  width: 100%;
+  height: 577px;
+
+  flex: 0 0 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   FLECHAS
+========================= */
+
+.hero7__arrow {
+  position: absolute;
+
+  top: 273px;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  background: transparent;
+
+  color: #207220;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  transition: transform 0.25s ease;
+}
+
+.hero7__arrow:hover {
+  transform: scale(1.15);
+}
+
+
+/* Izquierda */
+
+.hero7__arrow--prev {
+  left: 121px;
+}
+
+
+/* Derecha */
+
+.hero7__arrow--next {
+  right: 121px;
+}
+
+
+/* =========================
+   INDICADORES
+========================= */
+
+.hero7__dots {
+  position: absolute;
+
+  top: 692px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.hero7__dot {
+  width: 15px;
+  height: 15px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #C3C3C3;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.hero7__dot:hover {
+  transform: scale(1.15);
+}
+
+
+.hero7__dot.is-active {
+  background: #6F8060;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.hero7__intro {
+  position: absolute;
+
+  width: 960px;
+
+  left: 50%;
+  top: 740px;
+
+  transform: translateX(-50%);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: justify;
+
+  color: #6F8060;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.hero7__features {
+  position: absolute;
+
+  width: 952px;
+
+  left: 50%;
+  top: 858px;
+
+  transform: translateX(-50%);
+
+  display: grid;
+
+  grid-template-columns: 340px 300px;
+
+  column-gap: 350px;
+  row-gap: 61px;
+}
+
+
+/* Feature */
+
+.hero7__feature {
+  min-width: 0;
+}
+
+
+/* Icono + título */
+
+.hero7__feature-header {
+  display: flex;
+
+  align-items: center;
+
+  height: 44px;
+}
+
+
+/* Iconos */
+
+.hero7__icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+}
+
+
+/* Título */
+
+.hero7__feature-title {
+  margin-left: 18px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 40px;
+  line-height: 44px;
+
+  color: #207220;
+
+  white-space: nowrap;
+}
+
+
+/* Texto */
+
+.hero7__feature-text {
+  width: 340px;
+
+  margin-top: 13px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #207220;
+}
+
+
+.hero7__feature-text--short {
+  width: 280px;
+}
+
+
+.hero7__feature-text--terrace {
+  width: 300px;
+}
+
+
+
+
+
+
+
+
+/* =========================
+   HERO 8
+========================= */
+
+.hero8 {
+  position: relative;
+
+  width: 100%;
+  height: 647px;
+
+  background-image: url('./imgTDP/FOTO\ 5.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   HERO 8 - OVERLAY
+========================= */
+
+.hero8__overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: #000000;
+
+  opacity: 0.4;
+
+  z-index: 0;
+}
+
+
+/* =========================
+   HERO 8 - EYEBROW
+========================= */
+
+.hero8__eyebrow {
+  position: absolute;
+
+  top: 231px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 88px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: center;
+
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  color: #FCF7F0;
+
+  white-space: nowrap;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   HERO 8 - TÍTULO
+========================= */
+
+.hero8__title {
+  position: absolute;
+
+  top: 293px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 725px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 55px;
+  line-height: 61px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+
+  z-index: 1;
+}
+
+
+
+
+
+
+
+/* =========================
+   HERO 9
+========================= */
+
+.hero9 {
+  position: relative;
+
+  width: 100%;
+  height: 782px;
+
+  background: #FCF7F0;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+.hero9__map {
+  position: absolute;
+
+  width: 1140px;
+  height: 591px;
+
+  top: 84px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+
+/* GOOGLE MAPS */
+
+.hero9__map iframe {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  position: relative;
+
+  width: 100%;
+  height: 683px;
+
+  background: #207220;
+
+  overflow: hidden;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   TÍTULO PRINCIPAL
+========================= */
+
+.footer__title {
+  position: absolute;
+
+  top: 79px;
+  left: 30px;
+
+  width: 479px;
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: 48px;
+  line-height: 53px;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   DESCRIPCIÓN
+========================= */
+
+.footer__description {
+  position: absolute;
+
+  top: 195px;
+  left: 30px;
+
+  width: 312px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  text-align: justify;
+
+  color: #FCF7F0;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.footer__cta {
+  position: absolute;
+
+  top: 312px;
+  left: 30px;
+
+  width: 241px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #FCF7F0;
+
+  border-radius: 2px;
+
+  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.25);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900;
+
+  font-size: 15px;
+  line-height: 20px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  color: #207220;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.footer__cta:hover {
+  transform: translateY(-3px);
+
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.22);
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+.footer__contact {
+  position: absolute;
+
+  top: 79px;
+  left: 590px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.footer__heading {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #FCF7F0;
+}
+
+
+.footer__contact-link {
+  margin-top: 17px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #FCF7F0;
+
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+
+a.footer__contact-link:hover {
+  opacity: 0.7;
+}
+
+
+.footer__email {
+  margin-top: -5px;
+}
+
+
+/* =========================
+   SALA DE VENTAS
+========================= */
+
+.footer__sales {
+  position: absolute;
+
+  top: 74px;
+  left: 952px;
+
+  width: 230px;
+}
+
+
+.footer__address {
+  margin-top: 17px;
+
+  width: 187px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #FCF7F0;
+}
+
+
+.footer__directions {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 6px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 10px;
+  line-height: 14px;
+
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  color: #FCF7F0;
+}
+
+
+.footer__mini-arrow {
+  display: inline-block;
+
+  text-decoration: none;
+
+  transition: transform 0.25s ease;
+}
+
+
+.footer__directions:hover .footer__mini-arrow,
+.footer__instagram:hover .footer__mini-arrow {
+  transform: translateX(4px);
+}
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+.footer__image {
+  position: absolute;
+
+  width: 870px;
+  height: 308px;
+
+  left: 570px;
+  top: 234px;
+
+  overflow: hidden;
+
+  border-radius: 5px 0 0 5px;
+}
+
+
+.footer__image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================
+   LÍNEA INFERIOR
+========================= */
+
+.footer::after {
+  content: '';
+
+  position: absolute;
+
+  left: 33px;
+  right: 33px;
+
+  top: 585px;
+
+  height: 1px;
+
+  background: #FCF7F0;
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.footer__brand {
+  position: absolute;
+
+  left: 29px;
+  top: 605px;
+
+  width: 133px;
+  height: 40px;
+}
+
+
+.footer__brand img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   DESARROLLADO POR
+========================= */
+
+.footer__group13 {
+  position: absolute;
+
+  width: 199px;
+  height: 19px;
+
+  left: 50%;
+  top: 613px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+}
+
+
+.footer__developed {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 8px;
+  line-height: 11px;
+
+  white-space: nowrap;
+
+  color: #FCF7F0;
+}
+
+
+.footer__designer {
+  height: 19px;
+
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+
+.footer__designer img {
+  width: auto;
+  height: 19px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+
+.footer__designer:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================
+   INSTAGRAM + COPYRIGHT
+========================= */
+
+.footer__legal {
+  position: absolute;
+
+  right: 30px;
+  top: 613px;
+
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.footer__instagram {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 10px;
+  line-height: 14px;
+
+  color: #FCF7F0;
+
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+
+.footer__separator {
+  width: 1px;
+  height: 18px;
+
+  margin-left: 21px;
+  margin-right: 17px;
+
+  background: #FCF7F0;
+}
+
+
+.footer__copyright {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 10px;
+  line-height: 14px;
+
+  white-space: nowrap;
+
+  color: #FCF7F0;
+}
