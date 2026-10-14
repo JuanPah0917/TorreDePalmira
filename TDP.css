@@ -219,11 +219,11 @@ body {
    NAVBAR - ESTADO CONTRAÍDO
 ========================= */
 
-.navbar.is-scrolling {
+.navbar.is-collapsed {
   width: 154px;
 }
 
-.navbar.is-scrolling .navbar__container {
+.navbar.is-collapsed .navbar__container {
   border-radius: 5px;
 }
 
@@ -232,29 +232,19 @@ body {
   opacity: 1;
   visibility: visible;
 
-  /*
-    Al ABRIR:
-    esperamos a que la navbar termine de expandirse
-    antes de mostrar los links.
-  */
   transition:
-    opacity 0.25s ease 0.5s,
-    visibility 0s linear 0.5s;
+    opacity 0.25s ease 0.55s,
+    visibility 0s linear 0.55s;
 }
 
 
-/* Mientras está contraída */
-
-.navbar.is-scrolling .navbar__left,
-.navbar.is-scrolling .navbar__right {
+.navbar.is-collapsed .navbar__left,
+.navbar.is-collapsed .navbar__right {
   opacity: 0;
   visibility: hidden;
+
   pointer-events: none;
 
-  /*
-    Al CERRAR:
-    desaparecen inmediatamente.
-  */
   transition:
     opacity 0.15s ease,
     visibility 0s linear 0.15s;
@@ -1940,4 +1930,2638 @@ a.footer__contact-link:hover {
   white-space: nowrap;
 
   color: #FCF7F0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   NAVBAR MÓVIL
+   OCULTA EN DESKTOP
+========================================== */
+
+.mobile-navbar {
+  display: none;
+}
+
+/* ==========================================
+   CORRECCIÓN DESBORDAMIENTO HORIZONTAL
+========================================== */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* ==========================================
+   RESPONSIVE - NAVBAR MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* OCULTAR NAVBAR DESKTOP */
+
+  .navbar {
+    display: none;
+  }
+
+
+  /* ==========================================
+     CONTENEDOR GENERAL
+  ========================================== */
+
+  .mobile-navbar {
+    position: fixed;
+
+    bottom: 55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 228px;
+    height: 38px;
+
+    display: block;
+
+    z-index: 99999;
+
+    transition:
+      height 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+
+  /* ==========================================
+     PANEL
+  ========================================== */
+
+  .mobile-navbar__panel {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+
+    background: transparent;
+  }
+
+
+  /* ==========================================
+     HEADER
+  ========================================== */
+
+ .mobile-navbar__header {
+  position: relative;
+
+  top: 35px;
+
+  width: 141px;
+  height: 38px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  transition:
+    width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+  /* ==========================================
+     LOGO
+  ========================================== */
+
+  .mobile-navbar__logo {
+    width: 103px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FCF7F0;
+
+    border-radius: 5px;
+
+    text-decoration: none;
+  }
+
+
+  .mobile-navbar__logo img {
+    width: 84px;
+    height: 25px;
+
+    display: block;
+
+    object-fit: contain;
+  }
+
+
+  /* ==========================================
+     HAMBURGUESA
+  ========================================== */
+
+  .mobile-navbar__menu {
+    width: 28px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    padding: 0;
+
+    background: #FCF7F0;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+  }
+
+
+  .mobile-navbar__menu span {
+    display: block;
+
+    width: 10px;
+    height: 2px;
+
+    background: #207220;
+
+    border-radius: 2px;
+
+    transition:
+      transform 0.3s ease;
+  }
+
+
+  /* ==========================================
+     CONTENIDO OCULTO
+  ========================================== */
+
+  .mobile-navbar__content {
+    position: absolute;
+
+    top: 90px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+
+  /* ==========================================
+     ENLACES
+  ========================================== */
+
+  .mobile-navbar__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 22px;
+  }
+
+
+  .mobile-navbar__links a {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #207220;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+  }
+
+
+  /* ==========================================
+     CTA
+  ========================================== */
+
+  .mobile-navbar__cta {
+    width: 120px;
+    height: 60px;
+
+    margin-top: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 25px;
+
+    background: #207220;
+
+    border-radius: 2px;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     ESTADO ABIERTO
+  ========================================== */
+
+  .mobile-navbar.is-open {
+    height: 399px;
+  }
+
+
+  .mobile-navbar.is-open .mobile-navbar__panel {
+    background: #FCF7F0;
+  }
+
+
+  .mobile-navbar.is-open .mobile-navbar__header {
+    width: 141px;
+  }
+
+
+  .mobile-navbar.is-open .mobile-navbar__content {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transition-delay: 0.2s;
+  }
+
+
+  /* =========================
+   HAMBURGUESA ABIERTA → X
+========================= */
+
+/* Primera raya */
+.mobile-navbar.is-open .mobile-navbar__menu span:first-child {
+  transform: translateY(5px) rotate(45deg);
+}
+
+/* Segunda raya */
+.mobile-navbar.is-open .mobile-navbar__menu span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Tercera raya */
+.mobile-navbar.is-open .mobile-navbar__menu span:last-child {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+}
+
+
+
+
+
+
+
+  /* ==========================================
+   HERO 1 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     HERO PRINCIPAL
+  ========================= */
+
+  .hero {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 650px;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     IMAGEN MÓVIL
+  ========================= */
+
+  .hero__background {
+    position: absolute;
+
+    inset: -5px;
+
+    background-image: url('./imgTDP/HERO\ HOME\ PAGE.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(2.5px);
+
+    z-index: 0;
+  }
+
+
+  /* =========================
+     CONTENIDO
+  ========================= */
+
+  .hero__content {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+  }
+
+
+  /* =========================
+     TÍTULO
+  ========================= */
+
+.hero__title {
+  position: absolute;
+
+  width: calc(100% - 20px);
+  max-width: 381px;
+
+  top: 41%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: 'Carentro', serif;
+  font-weight: 400;
+
+  font-size: clamp(24px, 7.27vw, 32px);
+  line-height: 1.09;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+
+  /* =========================
+     SUBTÍTULO
+  ========================= */
+
+  .hero__subtitle {
+  position: absolute;
+
+  width: calc(100% - 30px);
+  max-width: 364px;
+
+  top: calc(41% + 70px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(10px, 2.73vw, 12px);
+  line-height: 16px;
+
+  text-align: center;
+
+  color: #FCF7F0;
+}
+
+
+  /* =========================
+     BOTÓN CTA
+  ========================= */
+
+  .hero__cta {
+  position: absolute;
+
+  width: 241px;
+  height: 60px;
+
+  top: calc(41% + 117px);
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #207220;
+
+  border-radius: 2px;
+  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.25);
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 900;
+
+  font-size: 15px;
+  line-height: 20px;
+
+  text-align: center;
+  text-decoration: none;
+
+  color: #FCF7F0;
+}
+}
+
+/* =========================
+   HERO 2 - IMÁGENES
+========================= */
+
+.hero2__img-desktop {
+  display: block;
+}
+
+.hero2__img-mobile {
+  display: none;
+}
+
+
+/* ==========================================
+   HERO 2 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* CONTENEDOR GENERAL */
+
+  .hero2 {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #FCF7F0;
+
+    overflow: hidden;
+  }
+
+
+  /* IMAGEN SUPERIOR */
+
+  .hero2__image {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+  }
+
+
+  .hero2__img-desktop {
+    display: none;
+  }
+
+
+  .hero2__img-mobile {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+
+  /* CONTENIDO INFERIOR */
+
+  .hero2__content {
+    position: relative;
+
+    width: 100%;
+    min-height: 348px;
+    height: auto;
+
+    padding: 57px 25px 60px;
+
+    background: #FCF7F0;
+  }
+
+
+  /* EL PROYECTO */
+
+  .hero2__eyebrow {
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #6F8060;
+  }
+
+
+  /* TÍTULO */
+
+  .hero2__title {
+    position: relative;
+
+    width: 321px;
+    max-width: 100%;
+
+    margin: 25px 0 0;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 32px;
+    line-height: 35px;
+
+    color: #207220;
+  }
+
+
+  /* DESCRIPCIÓN */
+
+  .hero2__text {
+    position: relative;
+
+    width: 100%;
+
+    margin: 25px 0 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: justify;
+
+    color: #6F8060;
+  }
+
+}
+/* ==========================================
+   HERO 2 - CORRECCIÓN RESPONSIVE
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  .hero2__eyebrow,
+  .hero2__title,
+  .hero2__text {
+
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    transform: none;
+
+  }
+
+}
+
+
+
+
+/* ==========================================
+   HERO 3 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero3 {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    min-height: 780px;
+
+    margin: 0;
+    padding: 87px 20px 80px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #007408;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     HEADER
+  ========================= */
+
+  .hero3__header {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  /* =========================
+     CARACTERÍSTICAS DEL PROYECTO
+  ========================= */
+
+  .hero3__eyebrow {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #B6CA93;
+  }
+
+
+  /* =========================
+     TÍTULO PRINCIPAL
+  ========================= */
+
+  .hero3__title {
+    position: static;
+
+    width: 277px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 26px 0 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 32px;
+    line-height: 35px;
+
+    text-align: center;
+
+    color: #FCF7F0;
+  }
+
+
+  /* =========================
+     CONTENEDOR CARACTERÍSTICAS
+  ========================= */
+
+  .hero3__features {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin: 34px 0 0;
+    padding: 0;
+
+    transform: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 35px;
+  }
+
+
+  /* =========================
+     CADA CARACTERÍSTICA
+  ========================= */
+
+  .hero3__feature {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  /* =========================
+     CONTENEDOR ÍCONO + TÍTULO
+  ========================= */
+
+  .hero3__feature-header {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 7px;
+  }
+
+
+  /* =========================
+     ÍCONOS
+  ========================= */
+
+  .hero3__icon {
+    position: static;
+
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+
+    object-fit: contain;
+
+    transform: none;
+  }
+
+
+  /* =========================
+     TÍTULOS DE CARACTERÍSTICAS
+  ========================= */
+
+  .hero3__feature-title,
+  .hero3__feature-title--small {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 20px;
+    line-height: 22px;
+
+    text-align: center;
+
+    color: #FCF7F0;
+  }
+
+
+  /* =========================
+     DESCRIPCIONES
+  ========================= */
+
+  .hero3__feature-text,
+  .hero3__feature-text--wide {
+    position: static;
+
+    width: 259px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+
+
+  /* =========================
+     ANCHOS SEGÚN FIGMA
+  ========================= */
+
+  /* 20 APARTAMENTOS */
+
+  .hero3__feature:nth-child(2) .hero3__feature-text {
+    width: 230px;
+  }
+
+
+  /* 4 TIPOLOGÍAS */
+
+  .hero3__feature:nth-child(3) .hero3__feature-text {
+    width: 230px;
+  }
+
+
+  /* ZONAS COMUNES */
+
+  .hero3__feature:nth-child(4) .hero3__feature-text {
+    width: 228px;
+  }
+
+}
+
+
+
+/* ==========================================
+   HERO 4 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero4 {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    margin: 0;
+    padding: 0;
+
+    background-image:
+      linear-gradient(
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url('./imgTDP/FOTO\ 3.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     NUESTRAS TIPOLOGÍAS
+  ========================= */
+
+  .hero4__eyebrow {
+    position: absolute;
+
+    top: 85px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 111px;
+    height: 14px;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: center;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #FCF7F0;
+
+    white-space: nowrap;
+  }
+
+
+  /* =========================
+     TÍTULO PRINCIPAL
+  ========================= */
+
+  .hero4__title {
+    position: absolute;
+
+    top: 113px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 317px;
+    max-width: calc(100% - 30px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 24px;
+    line-height: 26px;
+
+    text-align: center;
+
+    color: #FCF7F0;
+  }
+
+}
+
+
+
+/* ==========================================
+   HERO 5 - RESPONSIVE MÓVIL
+   CARRUSEL HORIZONTAL TÁCTIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero5 {
+    position: relative;
+
+    width: 100%;
+    height: 322px;
+
+    padding: 42px 0 0;
+
+    background: #FCF7F0;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     CARRUSEL HORIZONTAL
+  ========================= */
+
+  .hero5__grid {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    transform: none;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0 25px;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 12px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 25px;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+    touch-action: pan-x pan-y;
+  }
+
+
+  /* OCULTAR SCROLLBAR */
+
+  .hero5__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /* =========================
+     TARJETAS
+  ========================= */
+
+  .hero5__card {
+    position: relative;
+
+    flex: 0 0 355px;
+
+    width: 355px;
+    max-width: calc(100vw - 50px);
+
+    min-width: 0;
+
+    scroll-snap-align: start;
+
+    text-decoration: none;
+  }
+
+
+  /* =========================
+     IMÁGENES
+  ========================= */
+
+  .hero5__image-wrapper {
+    width: 100%;
+    height: 223px;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+  }
+
+
+  .hero5__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: none;
+  }
+
+
+  /* =========================
+     NOMBRES DE APARTAMENTOS
+  ========================= */
+
+  .hero5__label {
+    display: inline-block;
+
+    width: auto;
+    height: auto;
+
+    margin-top: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #207220;
+  }
+
+
+  /* =========================
+     DESACTIVAR HOVER EN MÓVIL
+  ========================= */
+
+  .hero5__card:hover .hero5__image,
+  .hero5__card:hover .hero5__label {
+    transform: none;
+  }
+
+}
+
+
+
+/* ==========================================
+   HERO 6 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero6 {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    margin: 0;
+    padding: 0;
+
+    background-image: url('./imgTDP/FOTO\ 4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     OVERLAY OSCURO
+  ========================= */
+
+  .hero6__overlay {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000000;
+    opacity: 0.2;
+
+    z-index: 0;
+
+    pointer-events: none;
+  }
+
+
+  /* =========================
+     ZONAS COMUNES
+  ========================= */
+
+  .hero6__eyebrow {
+    position: absolute;
+
+    top: 82px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 86px;
+    height: 14px;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: center;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #FCF7F0;
+
+    white-space: nowrap;
+
+    z-index: 1;
+  }
+
+
+  /* =========================
+     TÍTULO PRINCIPAL
+  ========================= */
+
+  .hero6__title {
+    position: absolute;
+
+    top: 116px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 318px;
+    max-width: calc(100% - 30px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 24px;
+    line-height: 26px;
+
+    text-align: center;
+
+    color: #FCF7F0;
+
+    z-index: 1;
+  }
+
+}
+
+
+
+/* ==========================================
+   HERO 7 - RESPONSIVE MÓVIL
+========================================== */
+
+/* Ocultar contador en desktop */
+.hero7__counter {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero7 {
+    position: relative;
+
+    width: 100%;
+    height: 946px;
+
+    margin: 0;
+    padding: 0;
+
+    background: #FCF7F0;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     CARRUSEL
+  ========================= */
+
+  .hero7__slider {
+    position: absolute;
+
+    top: 44px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 50px);
+    max-width: 390px;
+    height: 221px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+  }
+
+
+  /* VENTANA DEL CARRUSEL */
+
+  .hero7__slider-window {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+  }
+
+
+  /* CONTENEDOR DE IMÁGENES */
+
+  .hero7__slider-track {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transition: transform 0.35s ease;
+
+    will-change: transform;
+  }
+
+
+  /* IMÁGENES */
+
+  .hero7__slide {
+    display: block;
+
+    flex: 0 0 100%;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+
+  /* OCULTAR FLECHAS EN MÓVIL */
+
+  .hero7__arrow {
+    display: none;
+  }
+
+
+  /* =========================
+     CONTADOR DE IMÁGENES
+  ========================= */
+
+  .hero7__counter {
+    position: absolute;
+
+    top: 9px;
+    right: 9px;
+
+    width: auto;
+    min-width: 24px;
+    height: 13px;
+
+    padding: 1px 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 5px;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    color: #8B8B8B;
+
+    z-index: 5;
+
+    opacity: 1;
+
+    transition: opacity 0.35s ease;
+
+    pointer-events: none;
+  }
+
+
+  /* CONTADOR OCULTO */
+
+  .hero7__counter.is-hidden {
+    opacity: 0;
+  }
+
+
+  /* =========================
+     INDICADORES
+  ========================= */
+
+  .hero7__dots {
+    position: absolute;
+
+    top: 273px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: auto;
+    height: 7px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+  }
+
+
+  .hero7__dot {
+    width: 7px;
+    height: 7px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #C3C3C3;
+
+    cursor: pointer;
+  }
+
+
+  .hero7__dot.active,
+  .hero7__dot.is-active {
+    background: #6F8060;
+  }
+
+
+  /* =========================
+     TEXTO INTRODUCTORIO
+  ========================= */
+
+  .hero7__intro {
+    position: absolute;
+
+    top: 308px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: calc(100% - 50px);
+    max-width: 390px;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    text-align: center;
+
+    color: #6F8060;
+  }
+
+
+  /* =========================
+     CONTENEDOR DE CARACTERÍSTICAS
+  ========================= */
+
+  .hero7__features {
+    position: absolute;
+
+    top: 400px;
+    left: 0;
+
+    transform: none;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+  }
+
+
+  /* =========================
+     CADA CARACTERÍSTICA
+  ========================= */
+
+  .hero7__feature {
+    position: relative;
+
+    width: 100%;
+    height: 124px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  /* ESPACIADO ESPECÍFICO */
+
+  .hero7__feature:nth-child(3) {
+    height: 137px;
+  }
+
+  .hero7__feature:nth-child(4) {
+    height: auto;
+  }
+
+
+  /* =========================
+     ÍCONO + TÍTULO
+  ========================= */
+
+  .hero7__feature-header {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+  }
+
+
+  /* =========================
+     ÍCONOS
+  ========================= */
+
+  .hero7__icon {
+    display: block;
+
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: contain;
+  }
+
+
+  /* =========================
+     TÍTULOS
+  ========================= */
+
+  .hero7__feature-title {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 20px;
+    line-height: 22px;
+
+    text-align: center;
+
+    color: #207220;
+  }
+
+
+  /* =========================
+     DESCRIPCIONES
+  ========================= */
+
+  .hero7__feature-text,
+  .hero7__feature-text--short,
+  .hero7__feature-text--terrace {
+    width: 228px;
+    max-width: calc(100% - 50px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    text-align: center;
+
+    color: #207220;
+  }
+
+}
+
+
+/* ==========================================
+   HERO 8 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* =========================
+     CONTENEDOR GENERAL
+  ========================= */
+
+  .hero8 {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+
+    margin: 0;
+    padding: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     OVERLAY OSCURO
+  ========================= */
+
+  .hero8::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Evitar duplicar el overlay de desktop */
+
+.hero8__overlay {
+  display: none;
+}
+
+
+  /* =========================
+     UBICACIÓN
+  ========================= */
+
+  .hero8__eyebrow {
+    position: absolute;
+
+    top: 83px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 55px;
+    height: 14px;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-align: center;
+
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    color: #FCF7F0;
+
+    white-space: nowrap;
+
+    z-index: 1;
+  }
+
+
+  /* =========================
+     TÍTULO PRINCIPAL
+  ========================= */
+
+  .hero8__title {
+    position: absolute;
+
+    top: 115px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 308px;
+    max-width: calc(100% - 30px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: 24px;
+    line-height: 26px;
+
+    text-align: center;
+
+    color: #FCF7F0;
+
+    z-index: 1;
+  }
+
+}
+
+
+
+
+/* ==========================================
+   HERO 9 - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  /* CONTENEDOR GENERAL */
+
+  .hero9 {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 40px 25px 44px;
+
+    background: #FCF7F0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+
+  /* CONTENEDOR DEL MAPA */
+
+  .hero9__map {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    transform: none;
+
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+
+    aspect-ratio: 390 / 202;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+  }
+
+
+  /* IMAGEN DEL MAPA */
+
+  .hero9__map img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+  }
+
+}
+
+
+
+
+/* Salto de línea exclusivo para móvil */
+.footer__mobile-break { display: none; }
+
+/* ==========================================
+   FOOTER - RESPONSIVE MÓVIL
+========================================== */
+
+@media screen and (max-width: 767px) {
+
+  .footer__mobile-break { display: initial; }
+
+  /* ==========================================
+     1. CONTENEDOR GENERAL
+  ========================================== */
+
+  .footer {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 889px;
+    min-height: 889px;
+
+    margin: 0;
+    padding: 0;
+
+    background: #207220;
+    overflow: hidden;
+  }
+
+
+  /* ==========================================
+     2. REINICIAR CONTENEDORES DESKTOP
+  ========================================== */
+
+  .footer__intro,
+  .footer__contact,
+  .footer__sales,
+  .footer__bottom,
+  .footer__legal {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  .footer__intro,
+  .footer__bottom,
+  .footer__legal {
+    position: static;
+    display: block;
+  }
+
+
+  /* ==========================================
+     3. TÍTULO PRINCIPAL
+  ========================================== */
+
+  .footer__title {
+    position: absolute;
+
+    top: 61px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: max-content;
+    max-width: none;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Carentro', serif;
+    font-weight: 400;
+
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 35px;
+    white-space: nowrap;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     4. DESCRIPCIÓN
+  ========================================== */
+
+  .footer__description {
+    position: absolute;
+
+    top: 145px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: 312px;
+    max-width: calc(100% - 50px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 16px;
+    line-height: 22px;
+
+    text-align: justify;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     5. BOTÓN AGENDA TU CITA
+  ========================================== */
+
+  .footer__cta {
+    position: absolute;
+
+    top: 228px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+    transform: translateX(-50%);
+
+    width: 228px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #FCF7F0;
+
+    border: none;
+    border-radius: 2px;
+
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.25);
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 900;
+
+    font-size: 15px;
+    line-height: 20px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #207220;
+  }
+
+
+  /* ==========================================
+     6. IMAGEN DEL EDIFICIO
+  ========================================== */
+
+  .footer__image {
+    position: absolute;
+
+    top: 311px;
+    left: 0;
+    right: 0;
+    bottom: auto;
+
+    width: 100%;
+    height: 156px;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    overflow: hidden;
+  }
+
+  .footer__image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+
+  /* ==========================================
+     7. CONTACTO
+  ========================================== */
+
+  .footer__contact {
+    position: absolute;
+
+    top: 494px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: calc(100% - 50px);
+    height: 70px;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+
+    border: none;
+  }
+
+
+  /* ==========================================
+     8. TÍTULOS DE CONTACTO Y SALA DE VENTAS
+  ========================================== */
+
+  .footer__heading {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0 0 10px;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     9. TELÉFONO
+  ========================================== */
+
+  .footer__contact-link {
+    position: static;
+
+    display: block;
+
+    width: fit-content;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    text-decoration: none;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     10. CORREO
+  ========================================== */
+
+  .footer__email {
+    position: static;
+
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     11. SALA DE VENTAS
+  ========================================== */
+
+  .footer__sales {
+    position: absolute;
+
+    top: 584px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: calc(100% - 50px);
+    height: 100px;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+
+    border: none;
+  }
+
+
+  /* ==========================================
+     12. DIRECCIÓN
+  ========================================== */
+
+  .footer__address {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 10px;
+    line-height: 14px;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     13. CÓMO LLEGAR
+  ========================================== */
+
+  .footer__directions {
+    position: absolute;
+
+    top: 62px;
+    left: 0;
+    right: auto;
+    bottom: auto;
+
+    width: fit-content;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    text-decoration: underline;
+
+    color: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     14. FLECHAS
+  ========================================== */
+
+  .footer__mini-arrow {
+    position: static;
+
+    display: inline-block;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-size: 12px;
+    line-height: 11px;
+
+    text-decoration: none;
+  }
+
+
+  /* ==========================================
+     15. LÍNEAS DIVISORIAS
+  ========================================== */
+
+  /*
+     Eliminamos los pseudoelementos anteriores
+     para evitar líneas duplicadas.
+  */
+
+  .footer__contact::before,
+  .footer__contact::after,
+  .footer__sales::before,
+  .footer__sales::after,
+  .footer__bottom::before,
+  .footer__bottom::after {
+    content: none;
+    display: none;
+  }
+
+
+  /*
+     LÍNEA 1
+     Figma: 5194px
+     Footer: 564px
+
+     Se coloca 20px encima de Sala de Ventas.
+  */
+
+  .footer__sales {
+    border-top: none;
+  }
+
+  .footer__sales::before {
+    content: "";
+    display: block;
+
+    position: absolute;
+
+    top: -20px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: #FCF7F0;
+  }
+
+
+  /*
+     LÍNEA 2
+     Figma: 5314px
+     Footer: 684px
+  */
+
+  .footer__sales::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+
+    top: 100px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: #FCF7F0;
+  }
+
+
+  /* ==========================================
+     16. PARTE INFERIOR
+  ========================================== */
+
+  .footer__bottom {
+    position: static;
+
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+
+  /* ==========================================
+     17. LOGO TORRE DE PALMIRA
+  ========================================== */
+
+  .footer__brand {
+    position: absolute;
+
+    top: 712px;
+    left: 21px;
+    right: auto;
+    bottom: auto;
+
+    width: 85px;
+    height: 26px;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  .footer__brand img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+
+  /* ==========================================
+     18. INSTAGRAM Y COPYRIGHT
+  ========================================== */
+
+  .footer__legal {
+    position: static;
+
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+
+  .footer__instagram {
+    position: absolute;
+
+    top: 752px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: fit-content;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    text-decoration: underline;
+
+    color: #FCF7F0;
+  }
+
+
+  .footer__copyright {
+    position: absolute;
+
+    top: 773px;
+    left: 25px;
+    right: auto;
+    bottom: auto;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 8px;
+    line-height: 11px;
+
+    color: #FCF7F0;
+  }
+
+
+  /* Separador heredado de desktop */
+
+  .footer__separator {
+    display: none;
+  }
+
+
+  /* ==========================================
+     19. CRÉDITOS BY LAURA BARRIOS
+  ========================================== */
+
+  .footer__group13 {
+    position: absolute;
+
+    top: 835px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+    transform: translateX(-50%);
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+  }
+
+
+  .footer__developed {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 7px;
+    line-height: 10px;
+
+    white-space: nowrap;
+
+    color: #FCF7F0;
+  }
+
+
+  .footer__designer {
+    position: static;
+
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .footer__designer img {
+    display: block;
+
+    width: auto;
+    max-width: 85px;
+    height: 12px;
+
+    object-fit: contain;
+  }
+
+
+  /* ==========================================
+     20. ÚLTIMA LÍNEA DIVISORIA
+  ========================================== */
+
+  /*
+     Figma: 5453px
+     Footer: 823px
+  */
+
+  .footer__bottom::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+
+    top: 823px;
+    left: 25px;
+
+    width: calc(100% - 50px);
+    height: 1px;
+
+    background: #FCF7F0;
+  }
+
+
+
+  /* ==========================================
+   OCULTAR LÍNEA HEREDADA DE DESKTOP
+========================================== */
+
+.footer::after {
+  content: none;
+  display: none;
+}
+
 }

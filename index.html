@@ -12,7 +12,12 @@
 <body>
 
 
+<!-- =========================
+     NAVBAR DESKTOP
+========================= -->
+
 <header class="navbar">
+
   <nav class="navbar__container">
 
     <div class="navbar__left">
@@ -26,20 +31,96 @@
     </a>
 
     <div class="navbar__right">
+
       <a href="#ubicacion" class="navbar__link">UBICACIÓN</a>
       <a href="#contacto" class="navbar__link">CONTACTO</a>
 
       <a
-  href="https://wa.me/573014899985"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="navbar__cta"
->
-  ¡AGENDA TU CITA!
-</a>
+        href="https://wa.me/573014899985"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="navbar__cta"
+      >
+        ¡AGENDA TU CITA!
+      </a>
+
+    </div>
 
   </nav>
+
 </header>
+
+
+<!-- =========================
+     NAVBAR MÓVIL
+========================= -->
+
+<nav class="mobile-navbar" aria-label="Navegación móvil">
+
+  <div class="mobile-navbar__panel">
+
+    <!-- PARTE SUPERIOR -->
+
+    <div class="mobile-navbar__header">
+
+      <!-- LOGO -->
+
+      <a href="#inicio" class="mobile-navbar__logo">
+        <img src="imgTDP/logoNAVBAR.png" alt="Torre de Palmira">
+      </a>
+
+      <!-- HAMBURGUESA -->
+
+      <button
+        class="mobile-navbar__menu"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-navbar-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+
+    <!-- ENLACES -->
+
+    <div class="mobile-navbar__content" id="mobile-navbar-links">
+
+      <div class="mobile-navbar__links">
+
+        <a href="#proyecto">EL PROYECTO</a>
+
+        <a href="#tipologias">TIPOLOGÍAS</a>
+
+        <a href="#zonas">ZONAS COMUNES</a>
+
+        <a href="#ubicacion">UBICACIÓN</a>
+
+        <a href="#contacto">CONTACTO</a>
+
+      </div>
+
+
+      <!-- CTA -->
+
+      <a
+        href="https://wa.me/573014899985"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-navbar__cta"
+      >
+        ¡AGENDA TU CITA!
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
 
 
 
@@ -75,8 +156,22 @@
 <section class="hero2" id="proyecto">
 
   <div class="hero2__image">
-    <img src="imgTDP/FOTO 2.png" alt="Torre de Palmira">
-  </div>
+
+  <!-- IMAGEN DESKTOP -->
+  <img
+    src="imgTDP/FOTO 2.png"
+    alt="Torre de Palmira"
+    class="hero2__img-desktop"
+  >
+
+  <!-- IMAGEN MÓVIL -->
+  <img
+    src="imgTDP/FOTO HOME PAGE 2.png"
+    alt="Torre de Palmira"
+    class="hero2__img-mobile"
+  >
+
+</div>
 
   <div class="hero2__content">
 
@@ -230,7 +325,9 @@
 
   <div class="hero5__grid">
 
-    <a href="#" class="hero5__card">
+    <!-- APARTAMENTO TIPO A -->
+    <a href="APTOa.html" class="hero5__card">
+
       <div class="hero5__image-wrapper">
         <img
           src="imgTDP/APTO A.png"
@@ -242,10 +339,13 @@
       <p class="hero5__label">
         Apartamento Tipo A - 75 m²
       </p>
+
     </a>
 
 
-    <a href="#" class="hero5__card">
+    <!-- APARTAMENTO TIPO B -->
+    <a href="APTOb.html" class="hero5__card">
+
       <div class="hero5__image-wrapper">
         <img
           src="imgTDP/APTO B.png"
@@ -257,10 +357,13 @@
       <p class="hero5__label">
         Apartamento Tipo B - 95 m²
       </p>
+
     </a>
 
 
-    <a href="#" class="hero5__card">
+    <!-- APARTAMENTO TIPO C -->
+    <a href="APTOc.html" class="hero5__card">
+
       <div class="hero5__image-wrapper">
         <img
           src="imgTDP/APTO C.png"
@@ -272,10 +375,13 @@
       <p class="hero5__label">
         Apartamento Tipo C - 70 m²
       </p>
+
     </a>
 
 
-    <a href="#" class="hero5__card">
+    <!-- APARTAMENTO TIPO D -->
+    <a href="APTOd.html" class="hero5__card">
+
       <div class="hero5__image-wrapper">
         <img
           src="imgTDP/APTO D.png"
@@ -287,6 +393,7 @@
       <p class="hero5__label">
         Apartamento Tipo D - 84 m²
       </p>
+
     </a>
 
   </div>
@@ -322,6 +429,11 @@
   ========================== -->
 
   <div class="hero7__slider">
+
+    <!-- CONTADOR DE IMÁGENES: SOLO MÓVIL -->
+  <div class="hero7__counter" aria-live="off">
+    <span class="hero7__counter-current">1</span>/<span class="hero7__counter-total">11</span>
+  </div>
 
     <button
       class="hero7__arrow hero7__arrow--prev"
@@ -587,8 +699,8 @@
   <div class="footer__intro">
 
     <h2 class="footer__title">
-      HABLEMOS DE TU<br>
-      PRÓXIMO HOGAR
+      HABLEMOS DE<br>
+      TU PRÓXIMO HOGAR
     </h2>
 
     <p class="footer__description">
