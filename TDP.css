@@ -2930,6 +2930,7 @@ body {
 
     width: 100%;
     height: 250px;
+    min-height: 250px;
 
     margin: 0;
     padding: 0;
@@ -2997,7 +2998,7 @@ body {
 
     width: 317px;
     max-width: calc(100% - 30px);
-    height: auto;
+    height: 52px;
 
     margin: 0;
     padding: 0;
@@ -3021,13 +3022,13 @@ body {
   .hero4__disclaimer {
     position: absolute;
 
-    bottom: 12px;
+    top: 228px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: calc(100% - 30px);
-    max-width: 390px;
+    width: 344px;
+    max-width: calc(100% - 30px);
     height: auto;
 
     margin: 0;
@@ -3036,8 +3037,8 @@ body {
     font-family: 'Satoshi', sans-serif;
     font-weight: 500;
 
-    font-size: 7px;
-    line-height: 10px;
+    font-size: 5px;
+    line-height: 7px;
 
     text-align: center;
 
