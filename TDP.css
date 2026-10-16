@@ -975,8 +975,12 @@ body {
 
 
 
+/* ==========================================
+   HERO 6 - DESKTOP
+========================================== */
+
 /* =========================
-   HERO 6
+   CONTENEDOR GENERAL
 ========================= */
 
 .hero6 {
@@ -984,6 +988,9 @@ body {
 
   width: 100%;
   height: 647px;
+
+  margin: 0;
+  padding: 0;
 
   background-image: url('./imgTDP/FOTO\ 4.png');
   background-size: cover;
@@ -995,7 +1002,7 @@ body {
 
 
 /* =========================
-   HERO 6 - OVERLAY
+   OVERLAY OSCURO
 ========================= */
 
 .hero6__overlay {
@@ -1003,16 +1010,19 @@ body {
 
   inset: 0;
 
-  background: #000000;
+  width: 100%;
+  height: 100%;
 
+  background: #000000;
   opacity: 0.2;
 
   z-index: 0;
+  pointer-events: none;
 }
 
 
 /* =========================
-   HERO 6 - EYEBROW
+   ZONAS COMUNES
 ========================= */
 
 .hero6__eyebrow {
@@ -1024,6 +1034,10 @@ body {
   transform: translateX(-50%);
 
   width: 138px;
+  height: 22px;
+
+  margin: 0;
+  padding: 0;
 
   font-family: 'Satoshi', sans-serif;
   font-weight: 500;
@@ -1032,7 +1046,6 @@ body {
   line-height: 22px;
 
   text-align: center;
-
   text-decoration: underline;
   text-underline-offset: 3px;
 
@@ -1045,7 +1058,7 @@ body {
 
 
 /* =========================
-   HERO 6 - TÍTULO
+   TÍTULO PRINCIPAL
 ========================= */
 
 .hero6__title {
@@ -1057,6 +1070,11 @@ body {
   transform: translateX(-50%);
 
   width: 725px;
+  max-width: calc(100% - 60px);
+  height: auto;
+
+  margin: 0;
+  padding: 0;
 
   font-family: 'Carentro', serif;
   font-weight: 400;
@@ -1067,6 +1085,40 @@ body {
   text-align: center;
 
   color: #FCF7F0;
+
+  z-index: 1;
+}
+
+
+/* =========================
+   AVISO LEGAL INFERIOR
+========================= */
+
+.hero6__disclaimer {
+  position: absolute;
+
+  top: 597px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 60px);
+  max-width: 1380px;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 10px;
+  line-height: 14px;
+
+  text-align: center;
+
+  color: #FFFFFF;
+  opacity: 0.5;
 
   z-index: 1;
 }
@@ -3220,6 +3272,7 @@ body {
 
     width: 100%;
     height: 250px;
+    min-height: 250px;
 
     margin: 0;
     padding: 0;
@@ -3249,7 +3302,6 @@ body {
     opacity: 0.2;
 
     z-index: 0;
-
     pointer-events: none;
   }
 
@@ -3279,7 +3331,6 @@ body {
     line-height: 14px;
 
     text-align: center;
-
     text-decoration: underline;
     text-underline-offset: 2px;
 
@@ -3319,6 +3370,40 @@ body {
     text-align: center;
 
     color: #FCF7F0;
+
+    z-index: 1;
+  }
+
+
+  /* =========================
+     AVISO LEGAL INFERIOR
+  ========================= */
+
+  .hero6__disclaimer {
+    position: absolute;
+
+    top: 232px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 344px;
+    max-width: calc(100% - 30px);
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
+
+    font-size: 5px;
+    line-height: 7px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+    opacity: 0.5;
 
     z-index: 1;
   }
