@@ -661,6 +661,44 @@ body {
 }
 
 
+/* ==========================================
+   HERO 3 - ADVERTENCIA LEGAL
+   DESKTOP
+========================================== */
+
+.apto-gallery__disclaimer {
+  position: absolute;
+
+  bottom: 33px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 687px;
+  max-width: calc(100% - 40px);
+  height: 14px;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 10px;
+  line-height: 14px;
+
+  text-align: center;
+
+  color: #FFFFFF;
+  opacity: 0.5;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+
 /* =========================
    FLECHAS
 ========================= */
@@ -1801,6 +1839,42 @@ body {
     user-select: none;
     -webkit-user-drag: none;
   }
+
+   /* ==========================================
+   HERO 3 - ADVERTENCIA LEGAL
+   MÓVIL
+========================================== */
+
+.apto-gallery__disclaimer {
+  position: absolute;
+
+  bottom: 11px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 344px;
+  max-width: calc(100% - 30px);
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+
+  font-size: 5px;
+  line-height: 7px;
+
+  text-align: center;
+
+  color: #FFFFFF;
+  opacity: 0.5;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
 
 
   /* =========================
